@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <h1>Simple Calculator.</h1>
+    <form action="/" method="post" onsubmit="vals()">
+        <input type="text" name="num1"
+            placeholder="First Number">
+        <input type="text" name="num2"
+            placeholder="Second Number">
+            
+        <button type="submit" name="submit">
+            calculator
+        </button>
+    </form>
+
+    <h2>Addition Operation Ansewer : <span id="ans"></span></h2>
+    <button onclick="getVals()">History</button>
+    <h1>Data from MongoDB</h1>
+    <h1 id="bob"></h1>
+    <ul id="data-list"></ul>
+    <script>
+        function getVals(){
+            async function fetchData() {
+                var n1,n2;
+                try {
+                const response = await fetch('/values'); // Send a GET request to fetch data
+                document.getElementById('bob').innerHTML=response;
+                const data = await response.json();
+                const dataList = document.getElementById('data-list');
+                data.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = `n1: ${item.n1}, n2 ${item.n2} and : n1+n2 : ${item.add}`;
+                    n1=item.n1;
+                    n2=item.n2;
+                    dataList.appendChild(li);
+                });
+                document.getElementById('ans').innerHTML=(n1+n2);
+                } catch (error) {
+                console.error(error);
+                }
+            }
+            fetchData(); // Call the function to fetch data when the page loads
+        }
+        //  async function fetchData() {
+        //      var n1,n2;
+        //         try {
+        //         const response = await fetch('/values'); // Send a GET request to fetch data
+        //         document.getElementById('bob').innerHTML=response;
+        //         const data = await response.json();
+        //         const dataList = document.getElementById('data-list');
+        //         data.forEach(item => {
+        //             const li = document.createElement('li');
+        //             // li.textContent = `n1: ${item.n1}, n2 ${item.n2} and : n1+n2 : ${item.add}`;
+        //          n1=item.n1;
+        //          n2=item.n2;
+        //             // dataList.appendChild(li);
+        //         });
+        //      document.getElementById('ans').innerHTML=(n1+n2);
+        //         } catch (error) {
+        //         console.error(error);
+        //         }
+        //     }
+        //     fetchData();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote Security</title>
+    <style>
+        /* Style the form container */
+        .form-container {
+          max-width: 400px;
+          margin: 0 auto;
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          background-color: #f9f9f9;
+        }
+      
+        /* Center the form */
+        h4 {
+          text-align: center;
+        }
+      
+        /* Style labels */
+        label {
+          display: block;
+          margin-top: 10px;
+          font-weight: bold;
+        }
+      
+        /* Style text and password inputs */
+        input[type="text"],
+        input[type="password"] {
+          width: 100%;
+          padding: 10px;
+          margin: 5px 0;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+      
+        /* Style buttons */
+        input[type="reset"],
+        input[type="submit"] {
+          width: 50%;
+          margin: 10px 0;
+          padding: 10px;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      
+        input[type="reset"]:hover,
+        input[type="submit"]:hover {
+          background-color: #45a049;
+        }
+      </style>
+<body>
+      <div class="form-container">
+        <form action="/votesec" method="post">
+          <h4>Set Your Vote PIN</h4>
+          <label for="fname">Aadhar :</label>
+          <input type="text" id="fname" name="uname" placeholder="Aadhar">
+          <label for="lname">Password :</label>
+          <input type="password" id="lname" name="pass" placeholder="Password">
+          <label for="lname">Set PIN:</label>
+          <input type="password" id="lname" name="pin" placeholder="Security Pin">
+           
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+      
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .switch-form {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .switch-form a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="login-form" action="/login" method="post">
+            <label for="login-aadhar">Aadhar Number</label>
+            <input type="text" id="login-aadhar" name="login-aadhar" required>
+
+            <label for="login-dob">Date of Birth</label>
+            <input type="date" id="login-dob" name="login-dob" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="switch-form">
+            <a href="#" id="register-link">Register</a>
+        </div>
+    </div>
+
+    <div class="container" style="margin-top: 20px;">
+        <h2>Register</h2>
+        <form id="register-form" action="/register" method="post" style="display: none;">
+            <label for="register-aadhar">Aadhar Number</label>
+            <input type="text" id="register-aadhar" name="aadhar" required>
+
+            <label for="register-dob">Date of Birth</label>
+            <input type="date" id="register-dob" name="dob" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <div class="switch-form">
+            <a href="#" id="login-link">Login</a>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById("login-form");
+        const registerForm = document.getElementById("register-form");
+        const loginLink = document.getElementById("login-link");
+        const registerLink = document.getElementById("register-link");
+
+        loginLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            loginForm.style.display = "block";
+            registerForm.style.display = "none";
+        });
+
+        registerLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            loginForm.style.display = "none";
+            registerForm.style.display = "block";
+        });
+    </script>
+</body>
+</html>
